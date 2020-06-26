@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "designers",
+  "info": {
+    "name": "Designer"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Bio": {
+      "type": "text"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "designs": {
+      "via": "designer",
+      "collection": "design"
+    }
+  }
+}

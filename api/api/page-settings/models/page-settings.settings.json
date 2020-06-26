@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_settings",
+  "info": {
+    "name": "Page Settings"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Instagram": {
+      "type": "string"
+    },
+    "Facebook": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "designs",
+  "info": {
+    "name": "Design"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "DesignFiles": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "designer": {
+      "model": "designer",
+      "via": "designs"
+    }
+  }
+}

@@ -32,7 +32,7 @@ export default function Index({url}:IIndexProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const STRAPI_URL:string = process.env.STRAPI_URL || 'http://localhost:1337';
-
+  console.log('strapi URL : ',STRAPI_URL);
   try {
     const {data} = await axios.get(STRAPI_URL.concat('/page-settings'));
     const {homepageBackground:{url}} = data;

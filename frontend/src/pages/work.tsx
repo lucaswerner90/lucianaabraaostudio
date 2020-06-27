@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next';
 import axios from 'axios';
 import DesignAbout from '../components/DesignAbout';
 
-export default function Work({designs}) {
+export default function Work({designs}: any) {
   return (
     <Page>
         <Grid container justify='center'>
@@ -20,14 +20,6 @@ export default function Work({designs}) {
         </Grid>
     </Page>
   );
-}
-
-interface IClient {
-  id: string,
-  url: string,
-  logo: {
-    url: string
-  }
 }
 
 export const getStaticProps: GetStaticProps = async () => {

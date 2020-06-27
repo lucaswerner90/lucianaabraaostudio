@@ -1,12 +1,9 @@
 import React from 'react';
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       display: 'flex',
@@ -21,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       transform: 'translateZ(0)',
     },
     title: {
-      color: theme.palette.primary,
+    //   color: theme.palette.primary,
     },
     titleBar: {
       background:
@@ -33,7 +30,16 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function DesignAbout({data}) {
+export interface IDesign {
+    title: string,
+    image: string,
+    designer: string
+}
+
+export interface IDesignAboutProps {
+    data:IDesign[]
+}
+export default function DesignAbout({data}:IDesignAboutProps) {
   const classes = useStyles();
 
   return (

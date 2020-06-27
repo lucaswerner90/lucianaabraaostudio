@@ -20,6 +20,17 @@
     },
     "Description": {
       "type": "string"
+    },
+    "homepageBackground": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

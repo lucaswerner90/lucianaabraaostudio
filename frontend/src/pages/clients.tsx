@@ -21,12 +21,20 @@ export default function Contact() {
   );
 }
 
+interface IClient {
+  id: string,
+  url: string,
+  logo: {
+    url: string
+  }
+}
+
 export const getStaticProps: GetStaticProps = async () => {
-  const STRAPI_URL:string = process.env.STRAPI_URL;
+  const STRAPI_URL:string = process.env.STRAPI_URL || 'http://localhost:1337';
 
   try {
     const {data} = await axios.get(STRAPI_URL.concat('/clients'));
-    const {ClientInfoComponent} = data;
+    const {ClientInfoComponent}: {ClientInfoComponent: IClient[]} = data;
     const clients = ClientInfoComponent.map((client) => ({
       id: client.id,
       url: client.url,

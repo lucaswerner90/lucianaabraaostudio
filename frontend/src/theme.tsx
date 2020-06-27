@@ -32,7 +32,7 @@ const theme = createMuiTheme({
     },
     text:{
       primary: '#171717',
-      secondary:'#fff'
+      secondary:'#e6e6e6'
     }
   },
   overrides:{

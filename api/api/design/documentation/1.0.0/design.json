@@ -516,7 +516,8 @@
     "schemas": {
       "Design": {
         "required": [
-          "id"
+          "id",
+          "images"
         ],
         "properties": {
           "id": {
@@ -528,7 +529,7 @@
           "Description": {
             "type": "string"
           },
-          "DesignFiles": {
+          "images": {
             "type": "array",
             "items": {
               "required": [
@@ -594,19 +595,20 @@
           },
           "designer": {
             "required": [
-              "id"
+              "id",
+              "profilePhoto"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "Name": {
+              "name": {
                 "type": "string"
               },
-              "Bio": {
+              "bio": {
                 "type": "string"
               },
-              "Email": {
+              "email": {
                 "type": "string"
               },
               "designs": {
@@ -614,6 +616,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "profilePhoto": {
+                "type": "string"
               }
             }
           }

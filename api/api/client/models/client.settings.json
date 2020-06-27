@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "designers",
+  "collectionName": "clients",
   "info": {
-    "name": "Designer"
+    "name": "Client"
   },
   "options": {
     "increments": true,
@@ -12,17 +12,10 @@
     "name": {
       "type": "string"
     },
-    "bio": {
-      "type": "text"
+    "url": {
+      "type": "string"
     },
-    "email": {
-      "type": "email"
-    },
-    "designs": {
-      "collection": "design",
-      "via": "designer"
-    },
-    "profilePhoto": {
+    "logo": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -30,6 +23,9 @@
       ],
       "plugin": "upload",
       "required": true
+    },
+    "designs": {
+      "collection": "design"
     }
   }
 }

@@ -3,16 +3,16 @@
     "/clients": {
       "get": {
         "deprecated": false,
-        "description": "Find all the clients's records",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve clients document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Clients"
+                    "$ref": "#/components/schemas/Client"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Clients"
+          "Client"
         ],
         "parameters": [
           {
@@ -192,16 +192,16 @@
           }
         ]
       },
-      "put": {
+      "post": {
         "deprecated": false,
-        "description": "Update a single clients record",
+        "description": "Create a new record",
         "responses": {
           "200": {
-            "description": "Retrieve clients document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Clients"
+                  "$ref": "#/components/schemas/Client"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Clients"
+          "Client"
         ],
         "requestBody": {
           "description": "",
@@ -247,19 +247,212 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewClients"
+                "$ref": "#/components/schemas/NewClient"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/clients/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
               }
             }
           }
         },
+        "summary": "",
+        "tags": [
+          "Client"
+        ],
         "parameters": []
+      }
+    },
+    "/clients/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Client"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewClient"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single clients record",
+        "description": "Delete a record",
         "responses": {
           "200": {
-            "description": "deletes a single clients based on the ID supplied",
+            "description": "deletes a single record based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -302,187 +495,139 @@
         },
         "summary": "",
         "tags": [
-          "Clients"
+          "Client"
         ],
-        "parameters": []
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     }
   },
   "components": {
     "schemas": {
-      "Clients": {
+      "Client": {
         "required": [
-          "id"
+          "id",
+          "logo"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "ClientInfoComponent": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "logo": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              }
+            }
+          },
+          "designs": {
+            "required": [
+              "id",
+              "images"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "Title": {
+                "type": "string"
+              },
+              "Description": {
+                "type": "string"
+              },
+              "images": {
+                "type": "array",
+                "items": {
                   "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "logo": {
-                  "required": [
-                    "id",
-                    "name",
-                    "hash",
-                    "mime",
-                    "size",
-                    "url",
-                    "provider"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "alternativeText": {
-                      "type": "string"
-                    },
-                    "caption": {
-                      "type": "string"
-                    },
-                    "width": {
-                      "type": "integer"
-                    },
-                    "height": {
-                      "type": "integer"
-                    },
-                    "formats": {
-                      "type": "object"
-                    },
-                    "hash": {
-                      "type": "string"
-                    },
-                    "ext": {
-                      "type": "string"
-                    },
-                    "mime": {
-                      "type": "string"
-                    },
-                    "size": {
-                      "type": "number"
-                    },
-                    "url": {
-                      "type": "string"
-                    },
-                    "previewUrl": {
-                      "type": "string"
-                    },
-                    "provider": {
-                      "type": "string"
-                    },
-                    "provider_metadata": {
-                      "type": "object"
-                    },
-                    "related": {
-                      "type": "string"
-                    }
-                  }
                 }
+              },
+              "designer": {
+                "type": "string"
               }
             }
           }
         }
       },
-      "NewClients": {
+      "NewClient": {
         "properties": {
-          "ClientInfoComponent": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "logo": {
-                  "required": [
-                    "id",
-                    "name",
-                    "hash",
-                    "mime",
-                    "size",
-                    "url",
-                    "provider"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "alternativeText": {
-                      "type": "string"
-                    },
-                    "caption": {
-                      "type": "string"
-                    },
-                    "width": {
-                      "type": "integer"
-                    },
-                    "height": {
-                      "type": "integer"
-                    },
-                    "formats": {
-                      "type": "object"
-                    },
-                    "hash": {
-                      "type": "string"
-                    },
-                    "ext": {
-                      "type": "string"
-                    },
-                    "mime": {
-                      "type": "string"
-                    },
-                    "size": {
-                      "type": "number"
-                    },
-                    "url": {
-                      "type": "string"
-                    },
-                    "previewUrl": {
-                      "type": "string"
-                    },
-                    "provider": {
-                      "type": "string"
-                    },
-                    "provider_metadata": {
-                      "type": "object"
-                    },
-                    "related": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "designs": {
+            "type": "string"
           }
         }
       }
@@ -490,7 +635,7 @@
   },
   "tags": [
     {
-      "name": "Clients"
+      "name": "Client"
     }
   ]
 }

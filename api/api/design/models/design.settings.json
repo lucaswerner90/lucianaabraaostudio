@@ -15,20 +15,18 @@
     "Description": {
       "type": "text"
     },
-    "DesignFiles": {
+    "images": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "designer": {
-      "model": "designer",
-      "via": "designs"
+      "via": "designs",
+      "model": "designer"
     }
   }
 }

@@ -1,13 +1,17 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import Page from './page';
 
-export default function Designers() {
+export default function Contact() {
   return (
     <Page>
-        <Typography variant="h1" color="textSecondary" align='center'>
-          <span style={{fontWeight:100}}>studio_</span>designers.
-        </Typography>
+      <Grid container justify='center' alignItems='center' alignContent='center'>
+        <Grid item xs={12}>
+          <Typography variant="h1" color="textSecondary" align='center'>
+            <span style={{fontWeight:100}}>studio_</span>designers.
+          </Typography>
+        </Grid>
+      </Grid>
     </Page>
   );
 }

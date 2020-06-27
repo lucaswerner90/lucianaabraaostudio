@@ -16,7 +16,11 @@ const useStyles = makeStyles((theme) => {
   });
 });
 
-const About = ({description, url}) => {
+interface IPropsAbout {
+  description: string,
+  url: string
+}
+const About = ({description, url}:IPropsAbout) => {
   const classes = useStyles({});
   return (
     <Page>
@@ -39,7 +43,7 @@ const About = ({description, url}) => {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const STRAPI_URL = process.env.STRAPI_URL;
+  const STRAPI_URL:string = process.env.STRAPI_URL || 'http://localhost:1337';
 
   try {
     const {data} = await axios.get(STRAPI_URL.concat('/about-us'));

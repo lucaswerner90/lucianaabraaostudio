@@ -1,30 +1,23 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import Header from '../components/Header';
+import { GetStaticProps } from 'next';
+import axios from 'axios';
 
-const useStyles = makeStyles((theme) => {
-  return ({
-    root: {
-      background: 'linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(218, 46, 94, 0.6)),url(/img/background.jpg)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      width: '100%',
-      height: '100vh'
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title:{
-      flexGrow:1
-    }
-  });
-});
+interface IIndexProps {
+  url: string
+}
 
-export default function Index() {
-  const classes = useStyles({});
+export default function Index({url}:IIndexProps) {
+  const rootClass = {
+    background: `linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(218, 46, 94, 0.6)),url(${url})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100vh'
+  }
   return (
-    <Grid container justify='center' className={classes.root}>
+    <Grid container justify='center' style={rootClass}>
       <Grid item xs={12}>
         <Header/>
       </Grid>
@@ -35,4 +28,20 @@ export default function Index() {
       </Grid>
     </Grid>
   );
-}
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const STRAPI_URL:string = process.env.STRAPI_URL || 'http://localhost:1337';
+
+  try {
+    const {data} = await axios.get(STRAPI_URL.concat('/page-settings'));
+    const {homepageBackground:{url}} = data;
+    const props = { url: STRAPI_URL.concat(url) };
+    return { props };
+    
+  } catch (error) {
+    return {
+      props:{}
+    };
+  }
+};

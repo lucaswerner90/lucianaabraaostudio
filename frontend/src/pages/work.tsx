@@ -3,8 +3,9 @@ import { Typography, Grid } from '@material-ui/core';
 import Page from './page';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
+import DesignAbout from '../components/DesignAbout';
 
-export default function Work() {
+export default function Work({designs}) {
   return (
     <Page>
         <Grid container justify='center'>
@@ -12,6 +13,9 @@ export default function Work() {
                 <Typography variant="h1" color="textSecondary" align='center'>
                 <span style={{fontWeight:100}}>our_</span>work.
                 </Typography>
+            </Grid>
+            <Grid item xs={12}>
+                <DesignAbout data={designs}/>
             </Grid>
         </Grid>
     </Page>
@@ -31,13 +35,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
   try {
     const {data} = await axios.get(STRAPI_URL.concat('/designs'));
-    const {ClientInfoComponent}: {ClientInfoComponent: IClient[]} = data;
-    const clients = ClientInfoComponent.map((client) => ({
-      id: client.id,
-      url: client.url,
-      logo: STRAPI_URL.concat(client.logo.url)
+    const designs = data.map((design:any) => ({
+        title: design.Title,
+        image: STRAPI_URL.concat(design.images.formats.small.url),
+        designer: design.designer.name
     }));
-    const props = {clients};
+    const props = {designs};
     return { props };
     
   } catch (error) {

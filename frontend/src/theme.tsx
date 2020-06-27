@@ -44,23 +44,25 @@ const theme = createMuiTheme({
     MuiButton:{
       label:{
         textTransform: 'none',
-        fontSize: '1rem',
-        fontWeight: 500
+        fontSize: '1.125rem',
+        fontWeight: 700
       },
       root:{
         '&:hover': {
           borderColor: '#DA2E5E',
           color:'#DA2E5E',
           boxShadow: 'none',
+          borderRadius: '45px',
+          borderWidth: '2px'
         },
-        border: '2px solid #e6e6e6',
-        borderRadius: '45px'
       },
       colorInherit:{
         padding:'6px 30px'
       },
       outlinedPrimary:{
+        borderRadius: '45px',
         borderWidth:'4px',
+        borderColor:'transparent',
         padding:'6px 30px',
         '&:hover': {
           borderWidth:'4px'

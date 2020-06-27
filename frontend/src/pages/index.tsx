@@ -12,7 +12,7 @@ interface IIndexProps {
 
 export default function Index({url}:IIndexProps) {
   const rootClass = {
-    background: `linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(218, 46, 94, 0.6)),url(${url})`,
+    background: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(218, 46, 94, 0.3)),url(${url})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: '100%',
@@ -40,7 +40,10 @@ export const getStaticProps: GetStaticProps = async () => {
   console.log('strapi URL : ',STRAPI_URL);
   try {
     const {data} = await axios.get(STRAPI_URL.concat('/page-settings'));
-    const {homepageBackground:{url}} = data;
+    const {homepageBackground} = data;
+    const {formats} = homepageBackground;
+    const {small} = formats;
+    const {url} = small;
     const props = { url: STRAPI_URL.concat(url) };
     return { props };
     

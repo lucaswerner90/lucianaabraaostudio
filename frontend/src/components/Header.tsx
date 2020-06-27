@@ -58,7 +58,7 @@ export default function Header() {
     const classes = useStyles({});
     const matches = useMediaQuery(theme.breakpoints.down('sm'));
     return (
-        <AppBar position="static" style={{background:'transparent', marginTop: 20}} variant="outlined">
+        <AppBar position="static" style={{background:'transparent', marginTop: 20, borderRadius:'40px', border:'2px solid #e6e6e661'}} variant="outlined">
           <Toolbar>
             {matches && <MobileMenuIcon/>}
               <Link href="/" className={classes.title} >

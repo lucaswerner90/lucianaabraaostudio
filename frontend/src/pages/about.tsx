@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   try {
     const {data} = await axios.get(STRAPI_URL.concat('/about-us'));
-    const {description, cover:{url}} = data;
+    const {description, cover:{formats:{small:{url}}}} = data;
     const props = { description, url: STRAPI_URL.concat(url) };
     return { props };
     

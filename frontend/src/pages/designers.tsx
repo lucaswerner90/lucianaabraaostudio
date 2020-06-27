@@ -6,7 +6,7 @@ export default function Designers() {
   return (
     <Page>
         <Typography variant="h1" color="textSecondary" align='center'>
-          <span style={{fontWeight:'lighter'}}>studio_</span>designers.
+          <span style={{fontWeight:100}}>studio_</span>designers.
         </Typography>
     </Page>
   );

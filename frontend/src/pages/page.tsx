@@ -1,23 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Header from '../components/Header';
 
-const useStyles = makeStyles((theme) => {
-  return ({
-    root: {
-        background: theme.palette.background,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title:{
-      flexGrow:1
-    }
-  });
-});
+interface IPropsPage{
+  children: React.ReactNode
+}
 
-export default function Page({children}) {
-  const classes = useStyles({});
+export default function Page({children}:IPropsPage) {
   return (
     <React.Fragment>
         <Header/>

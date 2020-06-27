@@ -21,7 +21,7 @@ export default function About() {
       <Grid className={classes.root} container justify='center' alignItems='center' alignContent='center'>
         <Grid item xs={12}>
           <Typography variant="h1" color="textSecondary" align='center'>
-            <span style={{fontWeight:'100'}}>about_</span>us.
+            <span style={{fontWeight:'lighter'}}>about_</span>us.
           </Typography>
         </Grid>
           <Grid item xs={12} sm={6} style={{marginTop: '40px', flex: 1, height: 'auto'}}>

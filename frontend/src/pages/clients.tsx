@@ -8,7 +8,7 @@ export default function Contact() {
         <Grid container justify='center'>
             <Grid item xs={12}>
                 <Typography variant="h1" color="textSecondary" align='center'>
-                <span style={{fontWeight:'100'}}>clien</span>ts.
+                <span style={{fontWeight:'lighter'}}>clien</span>ts.
                 </Typography>
             </Grid>
             <Grid item xs={6}>

@@ -30,7 +30,7 @@ export default function Index() {
       </Grid>
       <Grid item xs={12}>
         <Typography variant="h1" color="textSecondary" align='center'>
-          <span style={{fontWeight:'100'}}>luciana</span>abraostudio.
+          <span style={{fontWeight:100}}>luciana</span>abraostudio.
         </Typography>
       </Grid>
     </Grid>

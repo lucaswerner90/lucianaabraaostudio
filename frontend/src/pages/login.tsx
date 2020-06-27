@@ -18,10 +18,10 @@ export default function Index() {
   const classes = useStyles({});
   return (
     <Page>
-        <Grid container justify="center" alignContent="center" alignItems="center" className={classes.root}>
+        <Grid container justify="center" alignContent="center" alignItems="center">
             <Grid item xs={12}>
                 <Typography variant="h1" color="textSecondary" align='center'>
-                    <span style={{fontWeight:'100'}}>log_</span>in.
+                    <span style={{fontWeight:'lighter'}}>log_</span>in.
                 </Typography>
             </Grid>
             <Grid item className={classes.loginForm}>

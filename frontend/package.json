@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.9.1",
+    "@types/nprogress": "^0.2.0",
     "axios": "^0.19.2",
     "clsx": "latest",
     "compression": "^1.7.4",

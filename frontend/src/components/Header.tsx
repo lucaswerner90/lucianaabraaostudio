@@ -56,7 +56,7 @@ export default function Header() {
             {matches && <MobileMenuIcon/>}
             <Link href="/" className={classes.title} >
               <Typography variant="h6" component="h2" color="textSecondary">
-                  <span style={{fontWeight:'100'}}>luciana</span>abraostudio.
+                  <span style={{fontWeight:'lighter'}}>luciana</span>abraostudio.
               </Typography>
             </Link>
             {!matches && <HeaderButtons />}

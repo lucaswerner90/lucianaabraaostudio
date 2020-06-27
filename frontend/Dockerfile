@@ -1,10 +1,10 @@
-FROM node:latest-alpine
+FROM node:alpine
 WORKDIR /usr/src/app
 
-COPY package.json package-lock.json ./
-RUN npm install
+COPY package.json ./
+RUN yarn
 
 COPY . ./
-RUN npm run build
+RUN yarn run build
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]

@@ -1,22 +1,62 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import red from '@material-ui/core/colors/red';
-
 // Create a theme instance.
 const theme = createMuiTheme({
+  typography:{
+    fontFamily: 'Roboto',
+    h1:{
+      fontWeight:'bold',
+      fontSize: '5rem',
+      '@media (min-width: 370px)': {
+        fontSize: '2.5rem',
+      },
+      '@media (min-width: 720px)': {
+        fontSize: '5rem',
+      },
+      '@media (min-width: 980px)': {
+        fontSize: '7rem',
+      }
+    }
+  },
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#DA2E5E',
     },
     secondary: {
-      main: '#19857b',
+      main: '#CFCFCF',
     },
     error: {
-      main: red.A400,
+      main: '#EC89A9',
     },
     background: {
-      default: '#fff',
+      default: '#222',
     },
+    text:{
+      primary: '#171717',
+      secondary:'#fff'
+    }
   },
+  overrides:{
+    MuiInput:{
+      root:{
+        color: '#fff'
+      }
+    },
+    MuiButton:{
+      label:{
+        textTransform: 'none',
+        fontSize: '1rem',
+        fontWeight: 300
+      },
+      root:{
+        padding: '6px 30px',
+        '&:hover': {
+          borderColor: '#DA2E5E',
+          color:'#DA2E5E',
+          boxShadow: 'none',
+        },
+      }
+    }
+  }
 });
 
 export default theme;

@@ -12,6 +12,14 @@ const useStyles = makeStyles((theme) => {
     },
     root:{
       flex: 1,
+    },
+    video:{
+      height: '100vh',
+      width: '100vw',
+      float: 'left',
+      top: '0',
+      padding: 'none',
+      position: 'fixed',
     }
   });
 });

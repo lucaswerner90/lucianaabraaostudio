@@ -1,10 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Button, useMediaQuery, IconButton } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Button, useMediaQuery, IconButton, Grid } from '@material-ui/core';
 import Link from '../Link';
 import { useRouter } from 'next/router';
 import theme from '../theme';
 import MenuIcon from '@material-ui/icons/Menu';
+import LogoHeader from './LogoHeader';
+import LogoText from './LogoText';
 
 const useStyles = makeStyles((theme) => {
     return ({
@@ -19,20 +21,25 @@ const useStyles = makeStyles((theme) => {
         marginRight: theme.spacing(2),
       },
       title:{
-        flexGrow:1
-      }
+        flex: 1,
+        flexGrow:1,
+        alignContent:'center',
+        alignItems:'center'
+      },
     });
 });
 
 const HeaderButtons = () => {
+  const classes = useStyles({});
   const router = useRouter();
   return (
     <React.Fragment>
-      <Button color="inherit" onClick={() => router.push('/clients')}>clients</Button>
-      <Button color="inherit" onClick={() => router.push('/about')}>about</Button>
-      <Button color="inherit" onClick={() => router.push('/contact')}>contact</Button>
-      <Button color="inherit" onClick={() => router.push('/designers')}>designers</Button>
-      <Button color="primary" variant="outlined" onClick={() => router.push('/login')}>login</Button>
+      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/clients')}>clients</Button>
+      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/about')}>about</Button>
+      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/designers')}>designers</Button>
+      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/work')}>our_work</Button>
+      <Button color="primary" variant="outlined" className={classes.menuButton} onClick={() => router.push('/contact')}>contact</Button>
+      {/* <Button color="primary" variant="outlined" onClick={() => router.push('/login')}>login</Button> */}
     </React.Fragment>
   );
 }
@@ -51,14 +58,19 @@ export default function Header() {
     const classes = useStyles({});
     const matches = useMediaQuery(theme.breakpoints.down('sm'));
     return (
-        <AppBar position="static" style={{background:'transparent'}} variant="outlined">
+        <AppBar position="static" style={{background:'transparent', marginTop: 20}} variant="outlined">
           <Toolbar>
             {matches && <MobileMenuIcon/>}
-            <Link href="/" className={classes.title} >
-              <Typography variant="h6" component="h2" color="textSecondary">
-                  <span style={{fontWeight:100}}>luciana</span>abraostudio.
-              </Typography>
-            </Link>
+              <Link href="/" className={classes.title} >
+                <Grid container style={{flexGrow: 1}} alignItems='center' spacing={2}>
+                  <Grid item>
+                    <LogoHeader width={30} height={30}/>
+                  </Grid>
+                  <Grid item>
+                    <LogoText width={150} height={40}/>
+                  </Grid>
+                </Grid>
+              </Link>
             {!matches && <HeaderButtons />}
           </Toolbar>
         </AppBar>

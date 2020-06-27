@@ -3,6 +3,8 @@ import { Grid, Typography } from '@material-ui/core';
 import Header from '../components/Header';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
+import Logo from '../components/Logo';
+import LogoText from '../components/LogoText';
 
 interface IIndexProps {
   url: string
@@ -21,10 +23,13 @@ export default function Index({url}:IIndexProps) {
       <Grid item xs={12}>
         <Header/>
       </Grid>
-      <Grid item xs={12}>
-        <Typography variant="h1" color="textSecondary" align='center'>
-          <span style={{fontWeight:100}}>luciana</span>abraostudio.
-        </Typography>
+      <Grid item>
+        <Grid container direction='column' justify='center' alignItems='center'>
+          <LogoText width={800} height={200}/>
+          <Grid item>
+            <Logo width={300} height={300}/>
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );

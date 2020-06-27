@@ -4,17 +4,14 @@ import Page from './page';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
 
-export default function Clients() {
+export default function Work() {
   return (
     <Page>
         <Grid container justify='center'>
             <Grid item xs={12}>
                 <Typography variant="h1" color="textSecondary" align='center'>
-                <span style={{fontWeight:100}}>clien</span>ts.
+                <span style={{fontWeight:100}}>our_</span>work.
                 </Typography>
-            </Grid>
-            <Grid item xs={6}>
-                <img src='/img/clients.png' width="100%"/>
             </Grid>
         </Grid>
     </Page>
@@ -33,7 +30,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const STRAPI_URL:string = process.env.STRAPI_URL || 'http://localhost:1337';
 
   try {
-    const {data} = await axios.get(STRAPI_URL.concat('/clients'));
+    const {data} = await axios.get(STRAPI_URL.concat('/designs'));
     const {ClientInfoComponent}: {ClientInfoComponent: IClient[]} = data;
     const clients = ClientInfoComponent.map((client) => ({
       id: client.id,

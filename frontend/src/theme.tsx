@@ -45,14 +45,25 @@ const theme = createMuiTheme({
       label:{
         textTransform: 'none',
         fontSize: '1rem',
-        fontWeight: 300
+        fontWeight: 500
       },
       root:{
-        padding: '6px 30px',
         '&:hover': {
           borderColor: '#DA2E5E',
           color:'#DA2E5E',
           boxShadow: 'none',
+        },
+        border: '2px solid #e6e6e6',
+        borderRadius: '45px'
+      },
+      colorInherit:{
+        padding:'6px 30px'
+      },
+      outlinedPrimary:{
+        borderWidth:'4px',
+        padding:'6px 30px',
+        '&:hover': {
+          borderWidth:'4px'
         },
       }
     }

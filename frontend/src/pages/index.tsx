@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Header from '../components/Header';
 import { GetStaticProps } from 'next';
 import axios from 'axios';

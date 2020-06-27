@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Button, useMediaQuery, IconButton, Grid } from '@material-ui/core';
+import { AppBar, Toolbar, Button, useMediaQuery, IconButton, Grid } from '@material-ui/core';
 import Link from '../Link';
 import { useRouter } from 'next/router';
 import theme from '../theme';

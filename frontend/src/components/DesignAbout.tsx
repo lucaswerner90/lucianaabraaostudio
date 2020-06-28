@@ -2,7 +2,7 @@ import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-
+import ProgressiveImage from 'react-progressive-graceful-image';
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles(() =>
       backgroundColor: 'transparent',
     },
     gridList: {
-      flexWrap: 'nowrap',
+      flexWrap: 'wrap',
       // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
       transform: 'translateZ(0)',
     },
@@ -33,7 +33,8 @@ const useStyles = makeStyles(() =>
 export interface IDesign {
     title: string,
     image: string,
-    designer: string
+    designer: string,
+    placeholderImg: string
 }
 
 export interface IDesignAboutProps {
@@ -47,7 +48,11 @@ export default function DesignAbout({data}:IDesignAboutProps) {
       <GridList className={classes.gridList} cols={5}>
         {data.map((tile, index) => (
           <GridListTile key={index} rows={4} className={classes.image} >
-            <img src={tile.image} alt={tile.title} />
+            <ProgressiveImage src={tile.image} placeholder={tile.placeholderImg}>
+              {(src: string | undefined) => {
+                return <img src={src} height="100%" alt={tile.title} />;
+              }}
+            </ProgressiveImage>
           </GridListTile>
         ))}
       </GridList>

@@ -15,7 +15,8 @@
     "next-react-svg": "1.1.1",
     "nprogress": "^0.2.0",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-progressive-graceful-image": "^0.6.11"
   },
   "scripts": {
     "dev": "./node_modules/.bin/nodemon server.js",

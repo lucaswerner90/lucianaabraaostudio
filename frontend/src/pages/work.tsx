@@ -30,6 +30,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const designs = data.map((design:any) => ({
         title: design.Title,
         image: STRAPI_URL.concat(design.images.formats.small.url),
+        placeholderImg: STRAPI_URL.concat(design.images.formats.thumbnail.url),
         designer: design.designer.name
     }));
     const props = {designs};

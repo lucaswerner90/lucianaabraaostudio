@@ -25,7 +25,7 @@ export default function Index({url}:IIndexProps) {
       </Grid>
       <Grid item>
         <Grid container direction='column' justify='center' alignItems='center'>
-          <LogoText width={800} height={200}/>
+          <LogoText width={'70vw'} height={'20vw'}/>
           <Grid item>
             <Logo width={300} height={300}/>
           </Grid>

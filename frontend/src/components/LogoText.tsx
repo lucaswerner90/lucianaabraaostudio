@@ -1,8 +1,8 @@
 import LogoText from '../assets/svg/text.svg';
  
 interface ILogoProps{
-    width:number,
-    height: number
+    width:number | string,
+    height: numbe | string
 };
 
 export default ({width, height}:ILogoProps) => (

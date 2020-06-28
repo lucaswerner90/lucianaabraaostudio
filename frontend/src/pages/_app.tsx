@@ -49,7 +49,7 @@ export default function MyApp(props: AppProps) {
         }}
         loadingClassNames="loading-indicator"
       >
-        <Component {...pageProps} />
+        <Component {...pageProps}/>
       </PageTransition>
       </ThemeProvider>
     </React.Fragment>

@@ -43,9 +43,9 @@ const theme = createMuiTheme({
     },
     MuiButton:{
       label:{
-        textTransform: 'none',
-        fontSize: '1.125rem',
-        fontWeight: 700
+        // textTransform: 'none',
+        fontSize: '0.8751rem',
+        fontWeight: 700,
       },
       root:{
         '&:hover': {

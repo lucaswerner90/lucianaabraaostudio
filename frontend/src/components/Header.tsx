@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => {
         height: '100vh'
       },
       menuButton: {
-        marginRight: theme.spacing(2),
+        marginRight: theme.spacing(0),
       },
       title:{
         flex: 1,
@@ -26,6 +26,14 @@ const useStyles = makeStyles((theme) => {
         alignContent:'center',
         alignItems:'center'
       },
+      topBar:{
+        background:'transparent',
+        margin:'0 auto',
+        marginTop: 20,
+        width:'90%',
+        borderRadius:'40px',
+        border:'2px solid #e6e6e661'
+      }
     });
 });
 
@@ -37,7 +45,7 @@ const HeaderButtons = () => {
       <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/clients')}>clients</Button>
       <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/about')}>about</Button>
       <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/designers')}>designers</Button>
-      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/work')}>our_work</Button>
+      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/work')}>work</Button>
       <Button color="primary" variant="outlined" className={classes.menuButton} onClick={() => router.push('/contact')}>contact</Button>
       {/* <Button color="primary" variant="outlined" onClick={() => router.push('/login')}>login</Button> */}
     </React.Fragment>
@@ -58,7 +66,7 @@ export default function Header() {
     const classes = useStyles({});
     const matches = useMediaQuery(theme.breakpoints.down('sm'));
     return (
-        <AppBar position="static" style={{background:'transparent', marginTop: 20, borderRadius:'40px', border:'2px solid #e6e6e661'}} variant="outlined">
+        <AppBar position="static" className={classes.topBar} variant="outlined">
           <Toolbar>
             {matches && <MobileMenuIcon/>}
               <Link href="/" className={classes.title} >

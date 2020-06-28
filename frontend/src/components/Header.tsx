@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => {
         marginTop: 20,
         width:'90%',
         borderRadius:'40px',
-        border:'2px solid #e6e6e661'
+        border:'2px solid #e6e6e62b'
       }
     });
 });

@@ -55,8 +55,8 @@ services:
     expose:
       - "80"
     environment:
-      - VIRTUAL_HOST=api.lucaswerner.dev, lucaswerner.dev
-      - LETSENCRYPT_HOST=api.lucaswerner.dev, lucaswerner.dev
+      - VIRTUAL_HOST=lucaswerner.dev
+      - LETSENCRYPT_HOST=lucaswerner.dev
       - LETSENCRYPT_EMAIL=wernerlucas12@gmail.com
       
   nginx-proxy:

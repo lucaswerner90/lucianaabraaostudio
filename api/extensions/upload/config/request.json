@@ -1,9 +1,0 @@
-{
-  "parser": {
-    "enabled": true,
-    "multipart": true,
-    "formidable": {
-      "maxFileSize": 2000000000
-    }
-  }
-}

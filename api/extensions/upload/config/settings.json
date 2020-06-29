@@ -1,6 +1,0 @@
-{
-    "provider": "cloudinary",
-    "providerOptions": {
-      "sizeLimit": 10000000
-    }
-}

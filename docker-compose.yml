@@ -6,7 +6,7 @@ services:
     env_file: .env
     restart: unless-stopped
     expose:
-        - "3000"
+      - "3000"
   api:
     image: strapi/strapi
     restart: unless-stopped
@@ -18,19 +18,11 @@ services:
       DATABASE_PORT: ${DATABASE_PORT}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      NODE_ENV: production
-      VIRTUAL_HOST: api.lucaswerner.dev
-      LETSENCRYPT_HOST: api.lucaswerner.dev
-      LETSENCRYPT_EMAIL: wernerlucas12@gmail.com
-      VIRTUAL_HOST: 1337
     volumes:
       - ./api:/srv/app
-    ports: 
-      - "1337:1337"
     expose:
-      - "3500"
       - "1337"
-        
+      - "3500"
 
   db:
     image: mongo
@@ -58,8 +50,8 @@ services:
     expose:
       - "80"
     environment:
-      - VIRTUAL_HOST=lucaswerner.dev
-      - LETSENCRYPT_HOST=lucaswerner.dev
+      - VIRTUAL_HOST=api.lucaswerner.dev, lucaswerner.dev
+      - LETSENCRYPT_HOST=api.lucaswerner.dev, lucaswerner.dev
       - LETSENCRYPT_EMAIL=wernerlucas12@gmail.com
       
   nginx-proxy:

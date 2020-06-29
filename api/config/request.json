@@ -3,7 +3,7 @@
     "enabled": true,
     "multipart": true,
     "formidable": {
-      "maxFileSize": 20000000
+      "maxFileSize": 2000000000
     }
   }
 }

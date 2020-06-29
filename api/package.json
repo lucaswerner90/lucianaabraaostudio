@@ -5,22 +5,22 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start": "NODE_ENV=production strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
   "devDependencies": {},
   "dependencies": {
-    "strapi": "3.0.1",
-    "strapi-admin": "3.0.1",
-    "strapi-connector-mongoose": "3.0.1",
-    "strapi-plugin-content-manager": "3.0.1",
-    "strapi-plugin-content-type-builder": "3.0.1",
-    "strapi-plugin-documentation": "3.0.1",
-    "strapi-plugin-email": "3.0.1",
-    "strapi-plugin-upload": "3.0.1",
-    "strapi-plugin-users-permissions": "3.0.1",
-    "strapi-utils": "3.0.1"
+    "strapi": "latest",
+    "strapi-admin": "latest",
+    "strapi-connector-mongoose": "latest",
+    "strapi-plugin-content-manager": "latest",
+    "strapi-plugin-content-type-builder": "latest",
+    "strapi-plugin-documentation": "latest",
+    "strapi-plugin-email": "latest",
+    "strapi-plugin-upload": "latest",
+    "strapi-plugin-users-permissions": "latest",
+    "strapi-utils": "latest"
   },
   "author": {
     "name": "A Strapi developer"

@@ -22,12 +22,14 @@ services:
       VIRTUAL_HOST: api.lucaswerner.dev
       LETSENCRYPT_HOST: api.lucaswerner.dev
       LETSENCRYPT_EMAIL: wernerlucas12@gmail.com
+      VIRTUAL_HOST: 1337
     volumes:
       - ./api:/srv/app
+    ports: 
+      - "1337:1337"
     expose:
       - "3500"
-    ports: 
-      - "80:1337"
+      - "1337"
         
 
   db:

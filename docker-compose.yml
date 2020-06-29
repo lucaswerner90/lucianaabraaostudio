@@ -5,8 +5,8 @@ services:
     build: ./frontend
     env_file: .env
     restart: unless-stopped
-    ports:
-        - "4000:3000"
+    expose:
+        - "3000"
   api:
     image: strapi/strapi
     restart: unless-stopped
@@ -20,9 +20,9 @@ services:
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - ./api:/srv/app
-    ports:
-      - "1337:1337"
-      - "3500:3500"
+    expose:
+      - "1337"
+      - "3500"
 
   db:
     image: mongo

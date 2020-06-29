@@ -46,7 +46,7 @@ services:
    
   nginx-proxy:
     restart: always
-    image: jwilder/nginx-proxy:alpine
+    build: ./nginx-proxy
     container_name: nginx-proxy
     ports:
       - "80:80"

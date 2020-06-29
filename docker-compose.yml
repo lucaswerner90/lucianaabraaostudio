@@ -23,7 +23,6 @@ services:
       DATABASE_PORT: ${DATABASE_PORT}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-      NODE_ENV: production
       VIRTUAL_HOST: api.lucaswerner.dev
       LETSENCRYPT_HOST: api.lucaswerner.dev
       LETSENCRYPT_EMAIL: wernerlucas12@gmail.com

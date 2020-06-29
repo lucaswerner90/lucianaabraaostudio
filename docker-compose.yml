@@ -13,7 +13,7 @@ services:
     expose:
       - "3000"
   api:
-    build: ./api
+    image: strapi/strapi
     restart: unless-stopped
     env_file: .env
     environment:
@@ -43,7 +43,7 @@ services:
       - ./db:/data/db
     expose:
       - "27017"
- 
+   
   nginx-proxy:
     restart: always
     image: jwilder/nginx-proxy:alpine

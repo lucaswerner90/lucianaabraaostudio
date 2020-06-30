@@ -27,7 +27,7 @@ export default function Index({url,placeholder}:IIndexProps) {
   const loaded = useProgressiveImage(url);
 
   return (
-    <Grid container justify='center' style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(218, 46, 94, 0.3)), url(${loaded || placeholder})`}} className={classes.root}>
+    <Grid container justify='center' style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url(${loaded || placeholder})`}} className={classes.root}>
       <Grid item xs={12}>
         <Header/>
       </Grid>

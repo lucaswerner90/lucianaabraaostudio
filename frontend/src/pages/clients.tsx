@@ -7,13 +7,13 @@ import axios from 'axios';
 export default function Clients() {
   return (
     <Page>
-        <Grid container justify='center'>
+        <Grid container justify='center' style={{minHeight:'90vh'}}>
             <Grid item xs={12}>
                 <Typography variant="h1" color="textSecondary" align='center'>
                 <span style={{fontWeight:100}}>clien</span>ts.
                 </Typography>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item>
                 <img src='/img/clients.png' width="100%"/>
             </Grid>
         </Grid>

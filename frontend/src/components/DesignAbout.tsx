@@ -40,17 +40,17 @@ export interface IDesign {
 export interface IDesignAboutProps {
     data:IDesign[]
 }
-export default function DesignAbout({data}:IDesignAboutProps) {
-  const classes = useStyles();
 
+export const DesignAbout = ({data}:IDesignAboutProps) => {
+  const classes = useStyles();
   return (
     <div className={classes.root}>
-      <GridList className={classes.gridList} cols={5}>
+      <GridList className={classes.gridList} cols={3}>
         {data.map((tile, index) => (
-          <GridListTile key={index} rows={4} className={classes.image} >
+          <GridListTile key={index} rows={4}>
             <ProgressiveImage src={tile.image} placeholder={tile.placeholderImg}>
               {(src: string | undefined) => {
-                return <img src={src} height="100%" alt={tile.title} />;
+                return <img src={src} width="100%" height="100%" alt={tile.title} />;
               }}
             </ProgressiveImage>
           </GridListTile>
@@ -58,4 +58,6 @@ export default function DesignAbout({data}:IDesignAboutProps) {
       </GridList>
     </div>
   );
-}
+};
+
+export default React.memo(DesignAbout);

@@ -10,6 +10,7 @@ const TIMEOUT = 400;
 
 // Add a top bar that indicates the loading page status when the user moves from one page to the other
 import createLoaderBetweenPages from '../components/NProgress';
+import UserContext from '../context/UserContext';
 createLoaderBetweenPages();
 
 
@@ -31,6 +32,7 @@ export default function MyApp(props: AppProps) {
         <title>LucianaAbraoStudio.</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700&display=swap" rel="stylesheet"/>
         <link rel='stylesheet' type='text/css' href='/css/nprogress.css' />
         <link rel='stylesheet' type='text/css' href='/css/page-transitions.css' />
 
@@ -49,7 +51,9 @@ export default function MyApp(props: AppProps) {
         }}
         loadingClassNames="loading-indicator"
       >
-        <Component {...pageProps}/>
+        <UserContext.Provider value={{user: 'someuserdatahere'}} key='page-transition-child-key'>
+          <Component {...pageProps}/>
+        </UserContext.Provider>
       </PageTransition>
       </ThemeProvider>
     </React.Fragment>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Button, useMediaQuery, IconButton, Grid } from '@material-ui/core';
+import { AppBar, Toolbar, Button, useMediaQuery, IconButton, Grid, Drawer, List, ListItem } from '@material-ui/core';
 import Link from '../Link';
 import { useRouter } from 'next/router';
 import theme from '../theme';
@@ -10,13 +10,6 @@ import LogoText from './LogoText';
 
 const useStyles = makeStyles((theme) => {
     return ({
-      root: {
-        background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(218, 46, 94, 0.6)),url(/img/background.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        width: '100%',
-        height: '100vh'
-      },
       menuButton: {
         marginRight: theme.spacing(0),
       },
@@ -33,20 +26,19 @@ const useStyles = makeStyles((theme) => {
         width:'90%',
         borderRadius:'40px',
         border:'2px solid #e6e6e62b'
-      }
+      },
     });
 });
 
 const HeaderButtons = () => {
   const classes = useStyles({});
   const router = useRouter();
+
   return (
     <React.Fragment>
       <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/clients')}>clients</Button>
       <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/about')}>about</Button>
-      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/designers')}>designers</Button>
-      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/work')}>work</Button>
-      <Button color="primary" variant="outlined" className={classes.menuButton} onClick={() => router.push('/contact')}>contact</Button>
+      <Button color="primary" variant="outlined" className={classes.menuButton} onClick={() => router.push('/shop')}>shop</Button>
       {/* <Button color="primary" variant="outlined" onClick={() => router.push('/login')}>login</Button> */}
     </React.Fragment>
   );
@@ -55,10 +47,28 @@ const HeaderButtons = () => {
 
 const MobileMenuIcon = () => {
   const classes = useStyles({});
+  const [open,setOpen] = useState<boolean>(false);
+  const router = useRouter();
+
   return(
-    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-      <MenuIcon />
-    </IconButton>
+    <React.Fragment>
+      <Drawer anchor={'left'} open={open} onClose={() => setOpen(false)} >
+        <List style={{width:'100%', background:'none'}}>
+            <ListItem button>
+              <Button variant="outlined" color="primary" onClick={() => router.push('/clients')}>Clients</Button>
+            </ListItem>
+            <ListItem button>
+              <Button variant="outlined" color="primary" onClick={() => router.push('/about')}>About</Button>
+            </ListItem>
+            <ListItem button>
+              <Button variant="outlined" color="primary" onClick={() => router.push('/shop')}>Shop</Button>
+            </ListItem>
+        </List>
+      </Drawer>
+      <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => setOpen(true)}>
+        <MenuIcon />
+      </IconButton>
+    </React.Fragment>
   );
 }
 

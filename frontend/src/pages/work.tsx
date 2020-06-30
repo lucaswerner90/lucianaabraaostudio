@@ -29,8 +29,8 @@ export const getStaticProps: GetStaticProps = async () => {
     const {data} = await axios.get(STRAPI_URL.concat('/designs'));
     const designs = data.map((design:any) => ({
         title: design.Title,
-        image: STRAPI_URL.concat(design.images.formats.small.url),
-        placeholderImg: STRAPI_URL.concat(design.images.formats.thumbnail.url),
+        image: STRAPI_URL.concat(design.images[0].formats.small.url),
+        placeholderImg: STRAPI_URL.concat(design.images[0].formats.thumbnail.url),
         designer: design.designer.name
     }));
     const props = {designs};

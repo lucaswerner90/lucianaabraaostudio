@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
-import { Grid } from '@material-ui/core';
+import Footer from '../components/Footer';
 
 interface IPropsPage{
   children: React.ReactNode
@@ -8,9 +8,10 @@ interface IPropsPage{
 
 export default function Page({children}:IPropsPage) {
   return (
-    <Grid container>
-        <Header/>
-        {children}
-    </Grid>
+    <React.Fragment>
+      <Header/>
+      {children}
+      <Footer/>
+    </React.Fragment>
   );
 }

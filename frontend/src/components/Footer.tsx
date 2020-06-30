@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles, Grid, Typography } from '@material-ui/core';
-import SocialMediaIcons from './SocialMediaIcons';
 
 const useStyles = makeStyles((theme) => {
     return ({
@@ -30,7 +29,6 @@ const Footer = () => {
                 </Typography>
             </Grid>
             <Grid item>
-                <SocialMediaIcons />
             </Grid>
         </Grid>
     )

@@ -71,7 +71,7 @@ const ShopItem = ({product}: IShopItemProps) => {
         <ProgressiveImage src={image} placeholder="" rootMargin="100%" threshold={[1]} >
           {(image: string, loading: boolean) => {
             return loading ? (
-              <Fade in={true} timeout={{enter: 4000, exit: 4000}}>
+              <Fade in={true} timeout={{enter: 0, exit: 2000}}>
                 <Skeleton variant="rect" width={'100%'} height={'450px'}/>
               </Fade>
             ) : (

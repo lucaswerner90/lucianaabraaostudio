@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles(() => {
   return ({
     root:{
       maxWidth:'100%',

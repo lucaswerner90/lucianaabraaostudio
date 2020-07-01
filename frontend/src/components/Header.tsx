@@ -54,13 +54,13 @@ const MobileMenuIcon = () => {
       <Drawer anchor={'left'} open={open} onClose={() => setOpen(false)} >
         <List style={{width:'100%', background:'none'}}>
             <ListItem button>
-              <Button variant="outlined" color="primary" onClick={() => router.push('/about')}>About</Button>
+              <Button variant="outlined" fullWidth color="primary" onClick={() => router.push('/about')}>About</Button>
             </ListItem>
             <ListItem button>
-              <Button variant="outlined" color="primary" onClick={() => router.push('/clients')}>Clients</Button>
+              <Button variant="outlined" fullWidth color="primary" onClick={() => router.push('/clients')}>Clients</Button>
             </ListItem>
             <ListItem button>
-              <Button variant="outlined" color="primary" onClick={() => router.push('/shop')}>Shop</Button>
+              <Button variant="outlined" fullWidth color="primary" onClick={() => router.push('/shop')}>Shop</Button>
             </ListItem>
         </List>
       </Drawer>

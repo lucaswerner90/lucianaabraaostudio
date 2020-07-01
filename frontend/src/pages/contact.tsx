@@ -15,7 +15,7 @@ export default function Contact({facebook,instagram}: IContactProps) {
     <Page>
       <Grid container justify='center' alignItems='center' alignContent='center' spacing={4}>
         <Grid item xs={12}>
-          <Typography variant="h1" color="textSecondary" align='center'>
+          <Typography variant="h1" color="textPrimary" align='center'>
             <span style={{fontWeight:100}}>conta</span>ct.
           </Typography>
         </Grid>

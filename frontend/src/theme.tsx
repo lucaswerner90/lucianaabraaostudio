@@ -8,14 +8,19 @@ const theme = createMuiTheme({
       fontWeight:'bold',
       fontSize: '5rem',
       '@media (min-width: 370px)': {
-        fontSize: '2.5rem',
+        fontSize: '5rem',
       },
       '@media (min-width: 720px)': {
-        fontSize: '5rem',
+        fontSize: '7rem',
       },
       '@media (min-width: 980px)': {
         fontSize: '7rem',
       }
+    },
+    h6:{
+      fontWeight:500,
+      textTransform:'uppercase',
+      fontSize:'1rem'
     }
   },
   palette: {
@@ -32,8 +37,8 @@ const theme = createMuiTheme({
       default: '#030303eb',
     },
     text:{
-      primary: '#171717',
-      secondary:'#e6e6e6'
+      secondary: '#171717',
+      primary:'#e6e6e6'
     }
   },
   overrides:{

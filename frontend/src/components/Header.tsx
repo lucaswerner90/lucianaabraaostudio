@@ -11,7 +11,7 @@ import LogoText from './LogoText';
 const useStyles = makeStyles((theme) => {
     return ({
       menuButton: {
-        marginRight: theme.spacing(0),
+        marginRight: theme.spacing(4),
       },
       title:{
         flex: 1,
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => {
         marginTop: 20,
         width:'90%',
         borderRadius:'40px',
-        border:'2px solid #e6e6e62b'
+        border:'1px solid #e6e6e62b'
       },
     });
 });
@@ -36,10 +36,9 @@ const HeaderButtons = () => {
 
   return (
     <React.Fragment>
-      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/clients')}>clients</Button>
       <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/about')}>about</Button>
-      <Button color="primary" variant="outlined" className={classes.menuButton} onClick={() => router.push('/shop')}>shop</Button>
-      {/* <Button color="primary" variant="outlined" onClick={() => router.push('/login')}>login</Button> */}
+      <Button color="inherit" className={classes.menuButton} onClick={() => router.push('/clients')}>clients</Button>
+      <Button color="primary" variant="outlined" onClick={() => router.push('/shop')}>shop</Button>
     </React.Fragment>
   );
 }
@@ -55,10 +54,10 @@ const MobileMenuIcon = () => {
       <Drawer anchor={'left'} open={open} onClose={() => setOpen(false)} >
         <List style={{width:'100%', background:'none'}}>
             <ListItem button>
-              <Button variant="outlined" color="primary" onClick={() => router.push('/clients')}>Clients</Button>
+              <Button variant="outlined" color="primary" onClick={() => router.push('/about')}>About</Button>
             </ListItem>
             <ListItem button>
-              <Button variant="outlined" color="primary" onClick={() => router.push('/about')}>About</Button>
+              <Button variant="outlined" color="primary" onClick={() => router.push('/clients')}>Clients</Button>
             </ListItem>
             <ListItem button>
               <Button variant="outlined" color="primary" onClick={() => router.push('/shop')}>Shop</Button>

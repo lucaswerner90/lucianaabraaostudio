@@ -9,7 +9,7 @@ export default function Clients() {
     <Page>
         <Grid container justify='center' style={{minHeight:'90vh'}}>
             <Grid item xs={12}>
-                <Typography variant="h1" color="textSecondary" align='center'>
+                <Typography variant="h1" color="textPrimary" align='center'>
                 <span style={{fontWeight:100}}>clien</span>ts.
                 </Typography>
             </Grid>

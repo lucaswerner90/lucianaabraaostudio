@@ -10,7 +10,7 @@ export default function Work({designs}: any) {
     <Page>
         <Grid container justify='center'>
             <Grid item xs={12}>
-                <Typography variant="h1" color="textSecondary" align='center'>
+                <Typography variant="h1" color="textPrimary" align='center'>
                 <span style={{fontWeight:100}}>our_</span>work.
                 </Typography>
             </Grid>

@@ -24,7 +24,7 @@ const Footer = () => {
     return (
         <Grid container className={classes.root} justify="center" alignItems="center" alignContent="center">
             <Grid item>
-                <Typography variant="h4" align="center" color="textSecondary">
+                <Typography variant="h4" align="center" color="textPrimary">
                     Contact
                 </Typography>
             </Grid>

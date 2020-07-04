@@ -19,8 +19,8 @@
       "type": "email"
     },
     "designs": {
-      "collection": "design",
-      "via": "designer"
+      "via": "designer",
+      "collection": "design"
     },
     "profilePhoto": {
       "model": "file",

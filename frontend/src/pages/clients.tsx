@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Grid } from '@material-ui/core';
 import Page from './page';
 import { GetStaticProps } from 'next';
-import axios from 'axios';
+import axios from '../axios';
 
 export default function Clients() {
   return (
@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const STRAPI_URL:string = process.env.STRAPI_URL || 'http://localhost:1337';
 
   try {
-    const {data} = await axios.get(STRAPI_URL.concat('/clients'));
+    const {data} = await axios.get('/clients');
     const {ClientInfoComponent}: {ClientInfoComponent: IClient[]} = data;
     const clients = ClientInfoComponent.map((client) => ({
       id: client.id,

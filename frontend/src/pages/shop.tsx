@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Grid, Container, Fade, Button, useTheme } from '@material-ui/core';
+import { Typography, Grid, Container } from '@material-ui/core';
 import Page from './page';
-import ProgressiveImage from 'react-progressive-graceful-image';
-import Skeleton from '@material-ui/lab/Skeleton';
 import { GetStaticProps } from 'next';
-import axios from 'axios';
+import axios from '../axios';
+import ShopChardItemFeatured from '../components/ShopCardItemFeatured';
+import ShopChardItem from '../components/ShopCardItem';
 
 interface IProduct {
   id: string,
   title: string,
-  image: string
+  image: string,
+  designer:string,
+  description: string,
 }
 
 const useStyles = makeStyles((theme) => {
@@ -45,71 +47,12 @@ const useStyles = makeStyles((theme) => {
 });
 
 
-interface IShopButtonProps {
-  itemID: string
-}
-const ShopButton = ({itemID}:IShopButtonProps) => {
-  return (
-    <Button fullWidth variant="outlined" color="primary" onClick={() => console.log('redirect to product id', itemID)}>
-      See more
-    </Button>
-  );
-};
-
-interface IShopItemProps {
-  product: IProduct
-}
-
-const ShopItem = ({product}: IShopItemProps) => {
-  const classes = useStyles({});
-  const theme = useTheme();
-  const {image, title, id} = product;
-  const [showExtraInfo, setShowExtraInfo] = useState(false);
-  return(
-    <Grid container>
-      <Grid item xs={12}>
-        <ProgressiveImage src={image} placeholder="" rootMargin="100%" threshold={[1]} >
-          {(image: string, loading: boolean) => {
-            return loading ? (
-              <Fade in={true} timeout={{enter: 0, exit: 2000}}>
-                <Skeleton variant="rect" width={'100%'} height={'450px'}/>
-              </Fade>
-            ) : (
-              <div className={classes.shopItemDiv} onMouseEnter={() => setShowExtraInfo(true)} onMouseLeave={() => setShowExtraInfo(false)}>
-                    <div style={{backgroundImage: `url(${image})`}} className={classes.shopItemDivImage}>
-                    </div>
-                    {showExtraInfo && (
-                      <Fade timeout={500} in={true}>
-                        <Grid container 
-                        className={`${classes.shopItemDivImage} ${classes.shopItemOverlay}`} 
-                        justify="center"
-                        alignItems="center"
-                        alignContent="center">
-                          <Grid item xs={12}>
-                            <Typography variant="h6" align="center">
-                              {title}
-                            </Typography>
-                          </Grid>
-                          <Grid item xs={10} style={{marginTop: theme.spacing() * 4}}>
-                            <ShopButton itemID={id}/>
-                          </Grid>
-                        </Grid>
-                      </Fade>
-                    )}
-              </div>
-            );
-          }}
-        </ProgressiveImage>
-      </Grid>
-    </Grid>
-  );
-}
-
 interface IShopProps {
-  products: IProduct[]
+  featured: IProduct[]
+  notFeatured: IProduct[]
 }
 
-const Shop = ({products}:IShopProps) => {
+const Shop = ({featured, notFeatured}:IShopProps) => {
   const classes = useStyles({});
   return (
     <Page>
@@ -118,11 +61,18 @@ const Shop = ({products}:IShopProps) => {
           shop.
         </Typography>
         <Grid container spacing={2} className={classes.root}>
-          {products.map((item: IProduct) => (
-            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
-              <ShopItem product={item}/>
-            </Grid>
-          ))}
+            {featured.map((item: IProduct) => (
+              <Grid key={item.id} item xs={12} sm={12} md={6} lg={3}>
+                <ShopChardItemFeatured id={item.id} title={item.title} description={item.description} image={item.image} />
+              </Grid>
+            ))}
+        </Grid>
+        <Grid container spacing={2} className={classes.root}>
+            {notFeatured.map((item: IProduct) => (
+              <Grid key={item.id} item xs={12} sm={12} md={4} lg={3}>
+                <ShopChardItem id={item.id} title={item.title} description={item.description} image={item.image} />
+              </Grid>
+            ))}
         </Grid>
       </Container>
     </Page>
@@ -131,21 +81,23 @@ const Shop = ({products}:IShopProps) => {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const STRAPI_URL:string = process.env.STRAPI_URL || 'http://localhost:1337';
+  const API_URL = process.env && process.env.NEXT_PUBLIC_STRAPI_URL || '';
 
   try {
-    const {data} = await axios.get(STRAPI_URL.concat('/designs'));
+    const {data} = await axios.get('/designs');
     const products = data.map( (x:any) => {
-      const {images, Title, _id} = x;
       return {
-        id: _id,
-        image: STRAPI_URL.concat(images[0].formats.thumbnail.url),
-        title: Title
+        featured: x.featured,
+        id: x._id,
+        description: x.Description,
+        image: API_URL.concat(x.images[0].formats.thumbnail.url),
+        title: x.Title,
       };
     });
-    const props = { products };
+    const featured = products.filter((x:any) => x.featured);
+    const notFeatured = products.filter((x:any) => !x.featured);
+    const props = { featured, notFeatured };
     return { props };
-    
   } catch (error) {
     console.error(error);
     return {

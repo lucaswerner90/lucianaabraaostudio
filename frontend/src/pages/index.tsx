@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 import Header from '../components/Header';
 import { GetStaticProps } from 'next';
-import axios from 'axios';
+import axios from '../axios';
 import Logo from '../components/Logo';
 import LogoText from '../components/LogoText';
 import useProgressiveImage from '../hooks/useProgressiveImage';
@@ -44,16 +44,15 @@ export default function Index({url,placeholder}:IIndexProps) {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const STRAPI_URL:string = process.env.STRAPI_URL || 'http://localhost:1337';
+  const API_URL = process.env && process.env.NEXT_PUBLIC_STRAPI_URL || '';
   try {
-    const {data} = await axios.get(STRAPI_URL.concat('/page-settings'));
+    const {data} = await axios.get('/page-settings');
     const {homepageBackground} = data;
     const {formats} = homepageBackground;
     const {small,thumbnail} = formats;
-    const {url} = small;
     const props = { 
-      url: STRAPI_URL.concat(url),
-      placeholder: STRAPI_URL.concat(thumbnail.url)
+      url: API_URL.concat(small.url),
+      placeholder: API_URL.concat(thumbnail.url)
     };
     return { props };
     

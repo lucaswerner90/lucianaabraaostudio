@@ -6,6 +6,8 @@
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
+    "@mui-treasury/components": "^1.5.2",
+    "@mui-treasury/styles": "^1.8.0",
     "@types/nprogress": "^0.2.0",
     "axios": "^0.19.2",
     "clsx": "latest",
@@ -20,7 +22,7 @@
     "react-progressive-graceful-image": "^0.6.11"
   },
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon server.js",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"

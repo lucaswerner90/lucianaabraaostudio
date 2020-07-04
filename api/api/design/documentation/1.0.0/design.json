@@ -621,6 +621,9 @@
                 "type": "string"
               }
             }
+          },
+          "featured": {
+            "type": "boolean"
           }
         }
       },
@@ -634,6 +637,9 @@
           },
           "designer": {
             "type": "string"
+          },
+          "featured": {
+            "type": "boolean"
           }
         }
       }

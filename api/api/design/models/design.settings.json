@@ -25,8 +25,11 @@
       "required": true
     },
     "designer": {
-      "via": "designs",
-      "model": "designer"
+      "model": "designer",
+      "via": "designs"
+    },
+    "featured": {
+      "type": "boolean"
     }
   }
 }

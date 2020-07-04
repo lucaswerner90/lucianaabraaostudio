@@ -557,6 +557,9 @@
                 },
                 "designer": {
                   "type": "string"
+                },
+                "featured": {
+                  "type": "boolean"
                 }
               }
             }

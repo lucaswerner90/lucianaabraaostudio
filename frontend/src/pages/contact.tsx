@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Grid } from '@material-ui/core';
 import Page from './page';
 import SocialMediaIcons from '../components/SocialMediaIcons';
-import axios from 'axios';
+import axios from '../axios';
 import { GetStaticProps } from 'next';
 
 interface IContactProps {
@@ -28,10 +28,8 @@ export default function Contact({facebook,instagram}: IContactProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const STRAPI_URL:string = process.env.STRAPI_URL || 'http://localhost:1337';
-
   try {
-    const {data} = await axios.get(STRAPI_URL.concat('/page-settings'));
+    const {data} = await axios.get('/page-settings');
     const {facebook, instagram} = data;
     const props = {facebook, instagram};
     return { props };

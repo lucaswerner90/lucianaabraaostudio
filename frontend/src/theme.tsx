@@ -17,6 +17,20 @@ const theme = createMuiTheme({
         fontSize: '7rem',
       }
     },
+    body2:{
+      '&.watching-this':{
+        fontSize:'0.75rem',
+        textTransform:'uppercase',
+      }
+    },
+    h5:{
+      '&.shopTitle':{
+        textTransform:'uppercase',
+        fontFamily:'Nunito Sans',
+        fontWeight:'bold',
+        textShadow:'1px 1px 2px black'
+      }
+    },
     h6:{
       fontWeight:500,
       textTransform:'uppercase',
@@ -24,6 +38,7 @@ const theme = createMuiTheme({
     }
   },
   palette: {
+    type:'dark',
     primary: {
       main: '#DA2E5E',
     },
@@ -34,7 +49,8 @@ const theme = createMuiTheme({
       main: '#EC89A9',
     },
     background: {
-      default: '#030303eb',
+      default: '#222',
+      paper:'#3333337a'
     },
     text:{
       secondary: '#171717',

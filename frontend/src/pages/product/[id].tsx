@@ -54,8 +54,8 @@ const Product = ({product}:IProductProps) => {
                                     {product.title}
                                 </Typography>
                                 <Grid container justify="center" spacing={2} alignItems="center" direction="row" style={{marginTop:'20px'}}>
-                                    <VisibilityIcon color="secondary" style={{marginRight:'10px', width:'20px', height:'20px'}}/> 
-                                    <Typography variant="body2" color="textPrimary" className="watching-this">
+                                    <VisibilityIcon color="disabled" style={{marginRight:'10px', width:'20px', height:'20px'}}/> 
+                                    <Typography variant="body2" color="textSecondary" className="watching-this">
                                         <span>{Math.round((Math.random()*10))+1} watching this now</span>
                                     </Typography>
                                 </Grid>

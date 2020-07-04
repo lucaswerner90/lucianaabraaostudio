@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Grid, Box, Container, useTheme } from '@material-ui/core';
 import Page from './page';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import axios from '../axios';
 
 const useStyles = makeStyles((theme) => {
@@ -64,7 +64,7 @@ export const About = ({description, images}:IPropsAbout) => {
 };
 
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const API_URL = process.env && process.env.NEXT_PUBLIC_STRAPI_URL || '';
   try {
     const {data} = await axios.get('/about-us');

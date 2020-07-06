@@ -57,7 +57,7 @@ const ShopChardItemFeatured = React.memo(({title, description, image, id}:IShopC
         }}></div>
       </Box>
       <CardMedia
-        className={cx(styles.media, mediaStyles.root, 'hoverImage')}
+        className={cx(styles.media, mediaStyles.root)}
         image={image}
       />
       <CardContent>

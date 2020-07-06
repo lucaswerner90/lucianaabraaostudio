@@ -10,6 +10,10 @@ const useStyles = makeStyles(() =>
                 float:'right',
                 backgroundColor:'#DA2E5E',
                 color: '#e6e6e6'
+            },
+            '& .MuiTypography-h6':{
+                fontSize: '1.5rem'
+
             }
         },
     }),
@@ -26,7 +30,7 @@ const ProductForm = () => {
         <form className={classes.root} autoComplete="off" onSubmit={submitForm}>
             <Grid container spacing={4}>
                 <Grid item>    
-                    <Typography variant="h4">
+                    <Typography variant="h6" component="h2">
                         Get your own
                     </Typography>
                 </Grid>

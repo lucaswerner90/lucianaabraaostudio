@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     borderRadius: 20,
     padding: 20,
-    background: theme.palette.background.default,
+    background: '#212121',
     color: theme.palette.text.primary,
   },
   media: {
@@ -43,7 +43,7 @@ const ShopChardItem= React.memo(({title, description, image, id}:IShopCardItemPr
   return (
     <Card className={cx(styles.root, shadowStyles.root)}>
       <CardMedia
-        className={cx(styles.media, mediaStyles.root, 'hoverImage')}
+        className={cx(styles.media, mediaStyles.root)}
         image={image}
       />
       <CardContent>

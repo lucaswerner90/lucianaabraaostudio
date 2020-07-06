@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Container, Grid, Box } from '@material-ui/core';
+import { Typography, Container, Grid, Box, Fade } from '@material-ui/core';
 import Page from '../page';
 import { GetServerSideProps } from 'next';
 import axios from '../../axios';
@@ -8,6 +8,7 @@ import ProgressiveImage from 'react-progressive-graceful-image';
 import theme from '../../theme';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import ProductForm from '../../components/ProductForm';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles(() => {
     return ({
@@ -31,20 +32,26 @@ interface IProductProps {
 
 const Product = ({product}:IProductProps) => {
     const classes = useStyles({});
+    const ProductImage = (
+    <Fade in={true} timeout={2000}>
+        <Box boxShadow={theme.shadows[10]} width="100%" height="100%"><div style={{
+        backgroundImage:`url(${product.image})`,
+        backgroundPosition:'center',
+        backgroundSize:'cover',
+        width:'100%',
+        height:'100%'
+        }}/>
+        </Box>
+    </Fade>);
+
     return (
         <Page>
             <Container maxWidth="xl" style={{margin:'40px 0'}}>
                 <Grid container justify="center" spacing={8}>
                     <Grid item xs={12} lg={6} className={classes.section}>
                             <ProgressiveImage src={product.image} placeholder={product.thumbnail}>
-                                {(_src: string | undefined) => {
-                                    return <Box boxShadow={theme.shadows[10]} width="100%" height="100%"><div style={{
-                                        backgroundImage:`url(${product.image})`,
-                                        backgroundPosition:'center',
-                                        backgroundSize:'cover',
-                                        width:'100%',
-                                        height:'100%'
-                                    }}/></Box>;
+                                {(_src: string | undefined, loading:boolean) => {
+                                    return loading ? <Skeleton variant="rect" width={'100%'} height={'100%'} /> : ProductImage
                                 }}
                             </ProgressiveImage>
                     </Grid>

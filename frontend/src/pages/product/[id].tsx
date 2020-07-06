@@ -7,6 +7,7 @@ import axios from '../../axios';
 import ProgressiveImage from 'react-progressive-graceful-image';
 import theme from '../../theme';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import ProductForm from '../../components/ProductForm';
 
 const useStyles = makeStyles(() => {
     return ({
@@ -47,13 +48,13 @@ const Product = ({product}:IProductProps) => {
                                 }}
                             </ProgressiveImage>
                     </Grid>
-                    <Grid item xs={12} lg={6} className={classes.section}>
-                        <Grid container style={{height:'100%'}} justify="center">
+                    <Grid item xs={12} lg={6}>
+                        <Grid container justify="center" alignContent="center" spacing={4}>
                             <Grid item xs={12}>
                                 <Typography variant="h1" color="textPrimary" align='center' style={{textShadow: theme.shadows[4]}}>
                                     {product.title}
                                 </Typography>
-                                <Grid container justify="center" spacing={2} alignItems="center" direction="row" style={{marginTop:'20px'}}>
+                                <Grid container justify="center" spacing={2} style={{marginTop:'20px'}}>
                                     <VisibilityIcon color="disabled" style={{marginRight:'10px', width:'20px', height:'20px'}}/> 
                                     <Typography variant="body2" color="textSecondary" className="watching-this">
                                         <span>{Math.round((Math.random()*10))+1} watching this now</span>
@@ -64,6 +65,11 @@ const Product = ({product}:IProductProps) => {
                                 <Typography variant="body1" align="center">
                                     {product.description}
                                 </Typography>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Box marginTop={theme.spacing(1)}>
+                                    <ProductForm/>
+                                </Box>
                             </Grid>
                         </Grid>
                     </Grid>

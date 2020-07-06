@@ -4,6 +4,7 @@ import { Typography, Grid, Box, Container, useTheme } from '@material-ui/core';
 import Page from './page';
 import { GetServerSideProps } from 'next';
 import axios from '../axios';
+import PageTitle from '../components/PageTitle';
 
 const useStyles = makeStyles((theme) => {
   return ({
@@ -28,9 +29,7 @@ export const About = ({description, images}:IPropsAbout) => {
       <Container maxWidth="lg">
         <Grid className={classes.root} container justify='center'>
           <Grid item>
-            <Typography variant="h1" color="textPrimary" align='center'>
-              <span style={{fontWeight:100}}>about_</span>us.
-            </Typography>
+            <PageTitle light="about_" bold="us."/>
           </Grid>
             <Grid item>
               <Grid container justify="center" spacing={4}>

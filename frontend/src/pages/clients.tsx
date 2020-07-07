@@ -20,14 +20,6 @@ export default function Clients() {
   );
 }
 
-interface IClient {
-  id: string,
-  url: string,
-  logo: {
-    url: string
-  }
-}
-
 export const getStaticProps: GetStaticProps = async () => {
   const STRAPI_URL: string = process.env.STRAPI_URL || 'http://localhost:1337';
 

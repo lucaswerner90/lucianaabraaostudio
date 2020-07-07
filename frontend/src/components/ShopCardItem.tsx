@@ -29,12 +29,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface IShopCardItemProps {
-  id: string,
-  title: string,
-  description: string,
-  image: string
-}
 
 const ShopChardItem= React.memo(({title, description, image, id}:IShopCardItemProps) => {
   const styles = useStyles();

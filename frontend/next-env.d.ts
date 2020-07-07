@@ -1,5 +1,6 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
+
 declare module 'next-page-transitions';
 declare module '@mui-treasury/styles/cardMedia/fourThree';
 declare module '@mui-treasury/styles/shadow/over';

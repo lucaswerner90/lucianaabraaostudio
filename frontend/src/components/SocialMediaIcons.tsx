@@ -14,14 +14,6 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-interface ISocialMediaIconsProps{
-    width:number,
-    height: number,
-    instagram: string,
-    facebook: string,
-    whatsapp: string
-};
-
 export default ({width, height, facebook, instagram, whatsapp}:ISocialMediaIconsProps) => {
     const classes = useStyles({});
     return (

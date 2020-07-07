@@ -17,10 +17,7 @@ const useStyles = makeStyles((theme) => {
   });
 });
 
-interface IPropsAbout {
-  description: string,
-  images: string[]
-}
+
 export const About = ({description, images}:IPropsAbout) => {
   const classes = useStyles({});
   const theme = useTheme();

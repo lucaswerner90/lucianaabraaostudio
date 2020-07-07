@@ -5,11 +5,6 @@ import SocialMediaIcons from '../components/SocialMediaIcons';
 import axios from '../axios';
 import { GetStaticProps } from 'next';
 
-interface IContactProps {
-  facebook:string,
-  instagram:string
-}
-
 export default function Contact({facebook,instagram}: IContactProps) {
   return (
     <Page>

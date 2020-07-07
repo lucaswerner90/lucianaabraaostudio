@@ -35,13 +35,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface IShopCardItemProps {
-  id: string,
-  title: string,
-  description: string,
-  image: string
-}
-
 const ShopChardItemFeatured = React.memo(({title, description, image, id}:IShopCardItemProps) => {
   const styles = useStyles();
   const mediaStyles = useFourThreeCardMediaStyles();

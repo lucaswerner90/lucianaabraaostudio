@@ -17,10 +17,6 @@ const useStyles = makeStyles(() => {
     },
   });
 });
-interface IIndexProps {
-  url: string,
-  placeholder: string,
-}
 
 export default function Index({url,placeholder}:IIndexProps) {
   const classes = useStyles({});

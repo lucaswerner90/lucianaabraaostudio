@@ -6,9 +6,9 @@ import { GetServerSideProps } from 'next';
 import axios from '../../axios';
 import ProgressiveImage from 'react-progressive-graceful-image';
 import theme from '../../theme';
-import VisibilityIcon from '@material-ui/icons/Visibility';
 import ProductForm from '../../components/ProductForm';
 import Skeleton from '@material-ui/lab/Skeleton';
+import WatchingThis from '../../components/WatchingThis';
 
 const useStyles = makeStyles(() => {
     return ({
@@ -18,19 +18,7 @@ const useStyles = makeStyles(() => {
     });
 });
 
-interface IProduct {
-    thumbnail: string,
-    image: string,
-    title: string,
-    description: string,
-    id: string
-    
-}
-interface IProductProps {
-    product: IProduct
-}
-
-const Product = ({product}:IProductProps) => {
+export const Product = ({product}:IProductProps) => {
     const classes = useStyles({});
     const ProductImage = (
     <Fade in={true} timeout={2000}>
@@ -61,12 +49,6 @@ const Product = ({product}:IProductProps) => {
                                 <Typography variant="h1" color="textPrimary" align='center' style={{textShadow: theme.shadows[4]}}>
                                     {product.title}
                                 </Typography>
-                                <Grid container justify="center" spacing={2} style={{marginTop:'20px'}}>
-                                    <VisibilityIcon color="disabled" style={{marginRight:'10px', width:'20px', height:'20px'}}/> 
-                                    <Typography variant="body2" color="textSecondary" className="watching-this">
-                                        <span>{Math.round((Math.random()*10))+1} watching this now</span>
-                                    </Typography>
-                                </Grid>
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography variant="body1" align="center">
@@ -74,8 +56,9 @@ const Product = ({product}:IProductProps) => {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12}>
-                                <Box marginTop={theme.spacing(1)}>
-                                    <ProductForm/>
+                                <WatchingThis/>
+                                <Box marginTop={theme.spacing(0)}>
+                                    <ProductForm product={product}/>
                                 </Box>
                             </Grid>
                         </Grid>

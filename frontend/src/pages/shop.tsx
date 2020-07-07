@@ -7,14 +7,6 @@ import axios from '../axios';
 import ShopChardItemFeatured from '../components/ShopCardItemFeatured';
 import ShopChardItem from '../components/ShopCardItem';
 
-interface IProduct {
-  id: string,
-  title: string,
-  image: string,
-  designer:string,
-  description: string,
-}
-
 const useStyles = makeStyles((theme) => {
   return ({
     root:{
@@ -45,12 +37,6 @@ const useStyles = makeStyles((theme) => {
     }
   });
 });
-
-
-interface IShopProps {
-  featured: IProduct[]
-  notFeatured: IProduct[]
-}
 
 const Shop = ({featured, notFeatured}:IShopProps) => {
   const classes = useStyles({});

@@ -1,0 +1,16 @@
+{
+	"extends": ["airbnb"],
+	"plugins": ["@typescript-eslint"],
+	"parser": "@typescript-eslint/parser",
+	"rules": {
+		"array-bracket-newline":"error",
+		"camelcase":"error",
+		"semi":"error",
+		"indent":"error",
+		"sort-keys":"error",
+		"import/no-unresolved": 0,
+		"react/jsx-filename-extension": {
+			"extensions": [".jsx", ".tsx"]
+		}
+	}
+}

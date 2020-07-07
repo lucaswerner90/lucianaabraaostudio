@@ -13,9 +13,6 @@ const useStyles = makeStyles(() => {
     },
   });
 });
-interface IPropsPage{
-  children: React.ReactNode
-}
 
 export default function Page({children}:IPropsPage) {
   const classes=useStyles({});

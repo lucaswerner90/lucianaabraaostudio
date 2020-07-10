@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_request_infos",
+  "info": {
+    "name": "Product Request Info"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "design": {
+      "model": "design"
+    },
+    "replied": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

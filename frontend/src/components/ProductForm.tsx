@@ -34,13 +34,13 @@ const ProductForm = ({product}:{product:IProduct}) => {
         e.preventDefault();
         setLoading(true);
         const body = {
-            productId: product.id,
+            product,
             name,
             email,
             description
-        }
+        };
         try {
-            await axios.post('/api/email/send',body);
+            await axios.post('/api/email/shop',body);
             clearForm();
         } catch (error) {
             console.error(error);
@@ -51,14 +51,9 @@ const ProductForm = ({product}:{product:IProduct}) => {
     return (
         <form ref={formRef} className={classes.root} autoComplete="off" onSubmit={submitForm}>
             <Grid container spacing={2}>
-                <Grid item>    
+                <Grid item xs={12}>    
                     <Typography variant="h6" component="h2">
                         Get your own
-                    </Typography>
-                </Grid>
-                <Grid item xs={12}>
-                    <Typography variant="body2">
-                        Each piece is unique, so are your needs.
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>

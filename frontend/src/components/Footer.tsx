@@ -23,12 +23,14 @@ const Footer = () => {
   const classes = useStyles({});
   return (
     <Grid container className={classes.root} justify="center" alignItems="center" alignContent="center">
-      <Grid item>
+      <Grid item xs={12}>
         <Typography variant="h4" align="center" color="textPrimary">
           Contact
         </Typography>
       </Grid>
-      <Grid item>
+      <Grid item xs={12} md={6}>
+      </Grid>
+      <Grid item xs={12} md={6}>
       </Grid>
     </Grid>
   )

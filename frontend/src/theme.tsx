@@ -7,6 +7,9 @@ const theme = createMuiTheme({
       fontFamily:'Nunito Sans',
       fontWeight:'bold',
       fontSize: '5rem',
+      '&.product-title': {
+        fontSize:'4.5rem',
+      },
       '&.pageTitle':{
         textShadow:'1px 1px 2px black'
       },
@@ -19,6 +22,11 @@ const theme = createMuiTheme({
       '@media (min-width: 980px)': {
         fontSize: '7rem',
       }
+    },
+    h4: {
+      fontSize:'1.5rem',
+      textTransform: 'uppercase',
+      textShadow: '1px 1px 2px black'
     },
     body2:{
       '&.watching-this':{

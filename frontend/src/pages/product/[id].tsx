@@ -46,9 +46,10 @@ export const Product = ({product}:IProductProps) => {
                     <Grid item xs={12} lg={6}>
                         <Grid container justify="center" alignContent="center" spacing={4}>
                             <Grid item xs={12}>
-                                <Typography variant="h1" color="textPrimary" align='center' style={{textShadow: theme.shadows[4]}}>
+                                <Typography variant="h1" className="product-title" color="textPrimary" align='center' style={{textShadow: theme.shadows[4]}}>
                                     {product.title}
                                 </Typography>
+                                <WatchingThis />
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography variant="body1" align="center">
@@ -56,7 +57,6 @@ export const Product = ({product}:IProductProps) => {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12}>
-                                <WatchingThis/>
                                 <Box marginTop={theme.spacing(0)}>
                                     <ProductForm product={product}/>
                                 </Box>

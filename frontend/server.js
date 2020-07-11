@@ -28,6 +28,10 @@ app.prepare().then(async () => {
         return handle(req, res);
     });
 
+    server.post('*', (req, res) => {
+        return handle(req, res);
+    });
+
 
     server.listen(PORT, (err) => {
         if (err) throw err;

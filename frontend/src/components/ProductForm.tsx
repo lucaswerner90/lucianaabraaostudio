@@ -29,18 +29,18 @@ const ProductForm = ({product}:{product:IProduct}) => {
         setDescription('');
         setEmail('');
         setName('');
-    }
+    };
     const submitForm = async (e:React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
         const body = {
-            product,
+            design: product.id,
             name,
             email,
             description
         };
         try {
-            await axios.post('/api/email/shop',body);
+            await axios.post((process.env.NEXT_PUBLIC_STRAPI_URL || '').concat('/product-request-infos'),body);
             clearForm();
         } catch (error) {
             console.error(error);

@@ -8,10 +8,12 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@mui-treasury/components": "^1.5.2",
     "@mui-treasury/styles": "^1.8.0",
+    "@types/cors": "^2.8.6",
     "@types/nprogress": "^0.2.0",
     "axios": "^0.19.2",
     "clsx": "latest",
     "compression": "^1.7.4",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "framer-motion": "^1.11.1",
     "next": "latest",
@@ -24,10 +26,9 @@
     "react-progressive-graceful-image": "^0.6.11"
   },
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
-    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+    "start": "next start"
   },
   "devDependencies": {
     "@types/next": "latest",

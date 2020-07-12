@@ -71,3 +71,7 @@ interface IShopProps {
 interface IProductProps {
     product: IProduct
 }
+
+interface ISuccessNoteProps {
+    message: string
+}

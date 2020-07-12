@@ -91,7 +91,8 @@ const theme = createMuiTheme({
         fontSize: '0.8751rem',
         fontWeight: 700,
       },
-      root:{
+      root: {
+        borderRadius: '45px',
         '&:hover': {
           borderColor: '#DA2E5E',
           color:'#DA2E5E',
@@ -122,7 +123,10 @@ const theme = createMuiTheme({
         borderWidth:'4px',
         padding:'6px 30px',
         borderColor: '#DA2E5E',
-        color:'#DA2E5E',
+        color: '#DA2E5E',
+        '&.Mui-disabled': {
+          borderWidth: '4px',
+        },
         '&:hover': {
           borderWidth:'4px',
           backgroundColor:'#DA2E5E',

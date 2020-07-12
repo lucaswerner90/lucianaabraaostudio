@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { TextField, makeStyles, createStyles, Button, Typography, Grid } from '@material-ui/core';
+import { TextField, makeStyles, createStyles, Button, Typography, Grid, Snackbar } from '@material-ui/core';
+import SendRoundedIcon from '@material-ui/icons/SendRounded';
 import axios from 'axios';
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -18,8 +20,13 @@ const useStyles = makeStyles(() =>
     }),
 );
 
+function Alert(props: AlertProps) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 const ProductForm = ({product}:{product:IProduct}) => {
     const classes = useStyles({});
+    const [open, setOpen] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
     const [description, setDescription] = useState('');
     const [email, setEmail] = useState('');
@@ -29,6 +36,12 @@ const ProductForm = ({product}:{product:IProduct}) => {
         setDescription('');
         setEmail('');
         setName('');
+    };
+    const handleClose = (_event?: React.SyntheticEvent, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
     };
     const submitForm = async (e:React.FormEvent) => {
         e.preventDefault();
@@ -41,6 +54,7 @@ const ProductForm = ({product}:{product:IProduct}) => {
         };
         try {
             await axios.post('/api/product-request/send', body);
+            setOpen(true);
             clearForm();
         } catch (error) {
             console.error(error);
@@ -69,11 +83,21 @@ const ProductForm = ({product}:{product:IProduct}) => {
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>
-                    {loading ?
-                        <Typography align="right" variant="body1" color="primary">Sending email...</Typography> :
-                        <Button type="submit" variant="outlined" color="primary">Send request</Button>
-                    }
-                    
+                    <Button
+                        type="submit"
+                        variant="outlined"
+                        color="primary"
+                        endIcon={loading ? null : <SendRoundedIcon />}
+                        disabled={loading}
+                    >
+                        {loading ? 'Sending...' : 'Send request'}
+                    </Button>
+
+                    <Snackbar anchorOrigin={{vertical:'bottom', horizontal:'right'}} open={open} autoHideDuration={6000} onClose={handleClose}>
+                        <Alert onClose={handleClose} severity="success">
+                            Your request has been sent!
+                        </Alert>
+                    </Snackbar>
                 </Grid>
             </Grid>
             

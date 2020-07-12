@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Container, Grid, Box, Fade } from '@material-ui/core';
 import Page from '../page';
 import { GetServerSideProps } from 'next';
-import axios from '../../axios';
+import API_AXIOS from '../../API_AXIOS';
 import ProgressiveImage from 'react-progressive-graceful-image';
 import theme from '../../theme';
 import ProductForm from '../../components/ProductForm';
@@ -73,9 +73,9 @@ export const Product = ({product}:IProductProps) => {
 export const getServerSideProps:GetServerSideProps = async (context) => {
     try {
         const API_URL = process.env && process.env.NEXT_PUBLIC_STRAPI_URL || '';
-        const { data } = await axios.get(`/designs/${context.query.id}`);
+        const { data } = await API_AXIOS.get(`/designs/${context.query.id}`);
         const product = {
-            featured: data.featured,
+            featured: !!data.featured,
             title: data.Title,
             description: data.Description,
             id: data._id,

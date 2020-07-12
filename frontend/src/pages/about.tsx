@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Grid, Box, Container, useTheme } from '@material-ui/core';
 import Page from './page';
 import { GetServerSideProps } from 'next';
-import axios from '../axios';
+import API_AXIOS from '../API_AXIOS';
 import PageTitle from '../components/PageTitle';
 
 const useStyles = makeStyles((theme) => {
@@ -63,7 +63,7 @@ export const About = ({description, images}:IPropsAbout) => {
 export const getServerSideProps: GetServerSideProps = async () => {
   const API_URL = process.env && process.env.NEXT_PUBLIC_STRAPI_URL || '';
   try {
-    const {data} = await axios.get('/about-us');
+    const { data } = await API_AXIOS.get('/about-us');
     const {description, photos} = data;
     const images:any[] = photos.map((photo:any) => API_URL.concat(photo.formats.small.url));
     return {

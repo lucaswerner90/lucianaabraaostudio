@@ -23,7 +23,6 @@ app.prepare().then(async () => {
     //     const actualPage = '/profile';
     //     app.render(req, res, actualPage);
     // });
-
     server.get('*', (req, res) => {
         return handle(req, res);
     });

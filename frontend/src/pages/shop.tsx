@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Grid, Container } from '@material-ui/core';
 import Page from './page';
 import { GetStaticProps } from 'next';
-import axios from '../axios';
+import API_AXIOS from '../API_AXIOS';
 import ShopChardItemFeatured from '../components/ShopCardItemFeatured';
 import ShopChardItem from '../components/ShopCardItem';
 
@@ -67,13 +67,13 @@ const Shop = ({featured, notFeatured}:IShopProps) => {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const API_URL = process.env && process.env.NEXT_PUBLIC_STRAPI_URL || '';
+  const API_URL = process.env && process.env.NEXT_PUBLIC_STRAPI_URL ? process.env.NEXT_PUBLIC_STRAPI_URL : '';
 
   try {
-    const {data} = await axios.get('/designs');
+    const { data } = await API_AXIOS.get('/designs');
     const products = data.map( (x:any) => {
       return {
-        featured: x.featured,
+        featured: !!x.featured,
         id: x._id,
         description: x.Description,
         image: API_URL.concat(x.images[0].formats.thumbnail.url),
@@ -85,7 +85,6 @@ export const getStaticProps: GetStaticProps = async () => {
     const props = { featured, notFeatured };
     return { props };
   } catch (error) {
-    console.error(error);
     return {
       props:{}
     };

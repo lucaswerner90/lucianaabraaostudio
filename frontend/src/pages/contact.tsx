@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Grid } from '@material-ui/core';
 import Page from './page';
 import SocialMediaIcons from '../components/SocialMediaIcons';
-import axios from '../axios';
+import API_AXIOS from '../API_AXIOS';
 import { GetStaticProps } from 'next';
 
 export default function Contact({facebook,instagram}: IContactProps) {
@@ -24,7 +24,7 @@ export default function Contact({facebook,instagram}: IContactProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const {data} = await axios.get('/page-settings');
+    const { data } = await API_AXIOS.get('/page-settings');
     const {facebook, instagram} = data;
     const props = {facebook, instagram};
     return { props };

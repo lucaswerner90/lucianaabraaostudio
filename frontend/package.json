@@ -15,6 +15,7 @@
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "framer": "^1.2.5",
     "framer-motion": "^1.11.1",
     "next": "latest",
     "next-page-transitions": "^1.0.0-beta.2",

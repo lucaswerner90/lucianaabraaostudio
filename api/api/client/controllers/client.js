@@ -20,6 +20,7 @@ module.exports = {
               id: client.id,
               name: client.name,
               designs: client.designs,
+              url: client.url,
               logo:{
                   thumbnail: client.logo.formats.thumbnail.url,
                   url: client.logo.url

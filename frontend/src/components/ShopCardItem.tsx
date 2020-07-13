@@ -21,11 +21,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:theme.palette.common.black,
     borderRadius: 0,
     height:'200px',
-    backgroundSize:'100%',
-    transition:'background .2s ease-in',
-    '&:hover':{
-      backgroundSize:'120%'
-    }
+    backgroundSize:'cover',
   },
 }));
 

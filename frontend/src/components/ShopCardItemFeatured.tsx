@@ -27,11 +27,7 @@ const useStyles = makeStyles((theme) => ({
     borderTopRightRadius:20,
     borderTopLeftRadius:20,
     height:'380px',
-    backgroundSize:'100%',
-    transition:'background .2s ease-in',
-    '&:hover':{
-      backgroundSize:'80%'
-    }
+    backgroundSize:'cover',
   },
 }));
 

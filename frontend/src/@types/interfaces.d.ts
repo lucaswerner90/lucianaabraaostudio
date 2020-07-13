@@ -25,8 +25,7 @@ interface IPropsAbout {
 }
 
 interface ISocialMediaIconsProps {
-    width: number,
-    height: number,
+    size: number,
     instagram: string,
     facebook: string,
     whatsapp: string

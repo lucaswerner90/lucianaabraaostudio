@@ -14,23 +14,24 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default ({width, height, facebook, instagram, whatsapp}:ISocialMediaIconsProps) => {
+export default ({size, facebook, instagram, whatsapp}:ISocialMediaIconsProps) => {
     const classes = useStyles({});
+    const message = 'Hi Luciana! I am contacting you through the web!';
     return (
-        <Grid container spacing={4} justify='center'>
+        <Grid container spacing={4} alignItems="center" alignContent="center">
             <Grid item>
                 <a href={facebook} target='_blank'>
-                    <Facebook className={classes.icon} width={width} height={height} fill={theme.palette.text.secondary} />
+                    <Facebook className={classes.icon} width={size} height={size} fill={theme.palette.text.secondary} />
                 </a>
             </Grid>
             <Grid item>
                 <a href={instagram} target='_blank'>
-                    <Instagram className={classes.icon} width={width} height={height} fill={theme.palette.text.secondary}/>
+                    <Instagram className={classes.icon} width={size} height={size} fill={theme.palette.text.secondary} />
                 </a>
             </Grid>
             <Grid item>
-                <a href={whatsapp} target='_blank'>
-                    <Whatsapp className={classes.icon} width={width} height={height} fill={theme.palette.text.secondary}/>
+                <a href={`https://wa.me/${whatsapp}?text=${encodeURI(message)}`} target='_blank'>
+                    <Whatsapp className={classes.icon} width={size} height={size} fill={theme.palette.text.secondary} />
                 </a>
             </Grid>
         </Grid>

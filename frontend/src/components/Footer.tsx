@@ -8,14 +8,6 @@ const useStyles = makeStyles((theme) => {
       background: '#2d2d2d',
       padding: theme.spacing() * 4
     },
-    video: {
-      height: '100vh',
-      width: '100vw',
-      float: 'left',
-      top: '0',
-      padding: 'none',
-      position: 'fixed',
-    }
   });
 });
 

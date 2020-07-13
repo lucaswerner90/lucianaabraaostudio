@@ -75,3 +75,18 @@ interface IProductProps {
 interface ISuccessNoteProps {
     message: string
 }
+
+interface IClientPage {
+    id: string,
+    name: string,
+    url: string,
+    designs: any[],
+    logo: {
+        thumbnail: string,
+        url: string,
+    }
+}
+
+interface IClientsPageProps {
+    clients: IClientPage[]
+}
